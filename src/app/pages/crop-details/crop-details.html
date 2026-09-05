@@ -1,0 +1,1014 @@
+<div class="crop-details-page">
+
+  <!-- =====================================================
+       HERO SECTION
+  ====================================================== -->
+
+  <section class="details-hero">
+
+    <div class="hero-decoration hero-decoration-one"></div>
+    <div class="hero-decoration hero-decoration-two"></div>
+    <div class="hero-decoration hero-decoration-three"></div>
+
+    <div class="details-container">
+
+      <a
+        routerLink="/crops"
+        class="back-link"
+      >
+        <span class="back-arrow">←</span>
+        Back to Crops
+      </a>
+
+
+      <!-- LOADING -->
+
+      <div
+        class="loading-state"
+        *ngIf="loading"
+      >
+
+        <div class="loading-spinner"></div>
+
+        <p>
+          Loading crop information...
+        </p>
+
+      </div>
+
+
+      <!-- HERO CONTENT -->
+
+      <div
+        class="hero-content"
+        *ngIf="!loading"
+      >
+
+        <div class="hero-badge">
+
+          <span>🌱</span>
+
+          AGRINEETI
+
+          <span class="badge-separator">•</span>
+
+          CROP HEALTH KNOWLEDGE
+
+        </div>
+
+
+        <div class="hero-icon">
+          🌾
+        </div>
+
+
+        <span class="hero-category">
+          TAMIL NADU CROP ADVISORY
+        </span>
+
+
+        <h1>
+          {{ cropName }}
+        </h1>
+
+
+        <p class="hero-subtitle">
+          Crop Health & Disease Advisory
+        </p>
+
+
+        <p class="hero-description">
+          {{ cropDescription }}
+        </p>
+
+
+        <div class="hero-tags">
+
+          <span>
+            🌱 Crop Overview
+          </span>
+
+          <span>
+            💧 Growing Requirements
+          </span>
+
+          <span>
+            🔍 Disease Monitoring
+          </span>
+
+          <span>
+            🛡️ Crop Protection
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main
+    class="details-main"
+    *ngIf="!loading"
+  >
+
+    <div class="details-container">
+
+
+      <!-- =================================================
+           QUICK SUMMARY
+      ================================================== -->
+
+      <section class="quick-summary">
+
+
+        <!-- TEMPERATURE -->
+
+        <div class="summary-card">
+
+          <span class="summary-icon">
+            🌡️
+          </span>
+
+          <div>
+
+            <span class="summary-label">
+              TEMPERATURE
+            </span>
+
+            <strong>
+              {{ temperature }}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CROP DURATION -->
+
+        <div class="summary-card">
+
+          <span class="summary-icon">
+            ⏱️
+          </span>
+
+          <div>
+
+            <span class="summary-label">
+              CROP DURATION
+            </span>
+
+            <strong>
+              {{ duration }}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- DISEASE COUNT -->
+
+        <div class="summary-card">
+
+          <span class="summary-icon">
+            🦠
+          </span>
+
+          <div>
+
+            <span class="summary-label">
+              DISEASES & PESTS
+            </span>
+
+            <strong>
+              {{ diseaseCount }} Identified
+            </strong>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- MONITORING -->
+
+        <div class="summary-card">
+
+          <span class="summary-icon">
+            🔎
+          </span>
+
+          <div>
+
+            <span class="summary-label">
+              MONITORING
+            </span>
+
+            <strong>
+              Regular Inspection
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           CROP OVERVIEW
+      ================================================== -->
+
+      <section class="information-section">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">
+            CROP PROFILE
+          </span>
+
+          <h2>
+            Crop Overview
+          </h2>
+
+          <p>
+            Essential information for understanding the
+            selected crop and maintaining healthy growth.
+          </p>
+
+        </div>
+
+
+        <div class="information-card">
+
+          <div class="information-icon">
+            🌾
+          </div>
+
+
+          <div class="information-content">
+
+            <span class="information-label">
+              ABOUT THIS CROP
+            </span>
+
+            <h3>
+              {{ cropName }}
+            </h3>
+
+            <p>
+              {{ cropDescription }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           GROWING REQUIREMENTS
+      ================================================== -->
+
+      <section class="requirements-section">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">
+            GROWING REQUIREMENTS
+          </span>
+
+          <h2>
+            Conditions for Healthy Growth
+          </h2>
+
+          <p>
+            Important environmental and field requirements
+            for successful crop production.
+          </p>
+
+        </div>
+
+
+        <div class="requirements-grid">
+
+
+          <!-- CLIMATE -->
+
+          <article class="requirement-card">
+
+            <div class="requirement-icon">
+              ☀️
+            </div>
+
+
+            <div class="requirement-content">
+
+              <span class="requirement-label">
+                CLIMATE
+              </span>
+
+              <h3>
+                Suitable Climate
+              </h3>
+
+              <p>
+                {{ climate }}
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- SOIL -->
+
+          <article class="requirement-card">
+
+            <div class="requirement-icon">
+              🌱
+            </div>
+
+
+            <div class="requirement-content">
+
+              <span class="requirement-label">
+                SOIL
+              </span>
+
+              <h3>
+                Soil Requirements
+              </h3>
+
+              <p>
+                {{ soil }}
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- WATER -->
+
+          <article class="requirement-card">
+
+            <div class="requirement-icon">
+              💧
+            </div>
+
+
+            <div class="requirement-content">
+
+              <span class="requirement-label">
+                WATER
+              </span>
+
+              <h3>
+                Water Management
+              </h3>
+
+              <p>
+                {{ water }}
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- TEMPERATURE -->
+
+          <article class="requirement-card">
+
+            <div class="requirement-icon">
+              🌡️
+            </div>
+
+
+            <div class="requirement-content">
+
+              <span class="requirement-label">
+                TEMPERATURE
+              </span>
+
+              <h3>
+                Temperature Range
+              </h3>
+
+              <p>
+                {{ temperature }}
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- DURATION -->
+
+          <article class="requirement-card">
+
+            <div class="requirement-icon">
+              📅
+            </div>
+
+
+            <div class="requirement-content">
+
+              <span class="requirement-label">
+                DURATION
+              </span>
+
+              <h3>
+                Crop Duration
+              </h3>
+
+              <p>
+                {{ duration }}
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- SPACING -->
+
+          <article class="requirement-card">
+
+            <div class="requirement-icon">
+              📏
+            </div>
+
+
+            <div class="requirement-content">
+
+              <span class="requirement-label">
+                SPACING
+              </span>
+
+              <h3>
+                Plant Spacing
+              </h3>
+
+              <p>
+                {{ spacing }}
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           AGRICULTURAL IMPORTANCE
+      ================================================== -->
+
+      <section class="importance-section">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">
+            AGRICULTURAL VALUE
+          </span>
+
+          <h2>
+            Why {{ cropName }} Matters
+          </h2>
+
+          <p>
+            Its importance in agriculture, food production
+            and farmer livelihoods.
+          </p>
+
+        </div>
+
+
+        <div class="importance-card">
+
+          <div class="importance-icon">
+            🌾
+          </div>
+
+
+          <div class="importance-content">
+
+            <span class="information-label">
+              CROP IMPORTANCE
+            </span>
+
+            <h3>
+              Agricultural Importance
+            </h3>
+
+            <p>
+              {{ importance }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           FIELD MONITORING
+      ================================================== -->
+
+      <section class="monitoring-section">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">
+            FIELD MONITORING
+          </span>
+
+          <h2>
+            What Should You Monitor?
+          </h2>
+
+          <p>
+            Early observation can help identify crop health
+            problems before they become severe.
+          </p>
+
+        </div>
+
+
+        <div class="monitoring-card">
+
+          <div class="monitoring-icon">
+            🔎
+          </div>
+
+
+          <div class="monitoring-content">
+
+            <span class="information-label">
+              REGULAR INSPECTION
+            </span>
+
+            <h3>
+              Crop Monitoring Guidance
+            </h3>
+
+            <p>
+              {{ monitoring }}
+            </p>
+
+
+            <div class="monitoring-points">
+
+
+              <div class="monitoring-point">
+
+                <span>
+                  01
+                </span>
+
+                <p>
+                  Inspect the crop regularly.
+                </p>
+
+              </div>
+
+
+
+              <div class="monitoring-point">
+
+                <span>
+                  02
+                </span>
+
+                <p>
+                  Look for unusual symptoms or pest activity.
+                </p>
+
+              </div>
+
+
+
+              <div class="monitoring-point">
+
+                <span>
+                  03
+                </span>
+
+                <p>
+                  Compare affected and healthy plants.
+                </p>
+
+              </div>
+
+
+
+              <div class="monitoring-point">
+
+                <span>
+                  04
+                </span>
+
+                <p>
+                  Take action early when a problem is confirmed.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           COMMON DISEASES & PESTS
+      ================================================== -->
+
+      <section class="diseases-section">
+
+        <div class="section-heading">
+
+          <span class="section-kicker">
+            CROP PROTECTION
+          </span>
+
+          <h2>
+            Common Diseases & Pests
+          </h2>
+
+          <p>
+            Explore the important diseases and pests associated
+            with {{ cropName }}. Select any problem to view its
+            symptoms, causes, prevention, solutions and management.
+          </p>
+
+        </div>
+
+
+
+        <!-- DISEASE HEADER -->
+
+        <div class="disease-section-header">
+
+          <div>
+
+            <span class="information-label">
+              AGRINEETI KNOWLEDGE BASE
+            </span>
+
+            <h3>
+              {{ diseaseCount }} Crop Health Problems
+            </h3>
+
+          </div>
+
+
+          <div class="disease-count-badge">
+
+            <strong>
+              {{ diseaseCount }}
+            </strong>
+
+            <span>
+              ENTRIES
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- DISEASE GRID -->
+
+        <div
+          class="disease-grid"
+          *ngIf="hasDiseases()"
+        >
+
+
+          <!-- DISEASE CARD -->
+
+          <article
+            class="disease-card"
+            *ngFor="let disease of diseases; let i = index"
+          >
+
+
+            <!-- CARD TOP -->
+
+            <div class="disease-card-top">
+
+              <div class="disease-number">
+                {{ i + 1 }}
+              </div>
+
+
+              <div class="disease-icon">
+                {{ getDiseaseIcon(disease) }}
+              </div>
+
+
+              <span class="disease-category">
+                {{ getDiseaseCategory(disease) }}
+              </span>
+
+            </div>
+
+
+
+            <!-- CARD CONTENT -->
+
+            <div class="disease-card-content">
+
+              <h3>
+                {{ disease.name }}
+              </h3>
+
+
+              <p>
+                {{ disease.diseaseInformation }}
+              </p>
+
+
+
+              <!-- KEY SYMPTOM -->
+
+              <div
+                class="disease-preview"
+                *ngIf="disease.symptoms.length"
+              >
+
+                <span class="preview-label">
+                  KEY SYMPTOM
+                </span>
+
+                <p>
+                  {{ disease.symptoms[0] }}
+                </p>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- CARD FOOTER -->
+
+            <div class="disease-card-footer">
+
+
+              <div class="disease-info-counts">
+
+
+                <!-- SYMPTOMS -->
+
+                <span
+                  *ngIf="disease.symptoms.length"
+                >
+                  🔍 {{ disease.symptoms.length }} Symptoms
+                </span>
+
+
+
+                <!-- PREVENTION -->
+
+                <span
+                  *ngIf="disease.prevention.length"
+                >
+                  🛡️ {{ disease.prevention.length }} Prevention
+                </span>
+
+              </div>
+
+
+
+              <!-- VIEW DETAILS -->
+
+              <a
+                [routerLink]="getDiseaseUrl(disease)"
+                class="disease-view-button"
+              >
+
+                View Details
+
+                <span>
+                  →
+                </span>
+
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+
+        <!-- EMPTY STATE -->
+
+        <div
+          class="empty-diseases-card"
+          *ngIf="!hasDiseases()"
+        >
+
+          <div class="empty-icon">
+            🌿
+          </div>
+
+
+          <h3>
+            Disease Information Is Being Prepared
+          </h3>
+
+
+          <p>
+            Disease and pest information for this crop is
+            currently being organized in the AgriNeeti
+            knowledge base.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           AGRINEETI ADVISORY
+      ================================================== -->
+
+      <section class="advisory-section">
+
+        <div class="advisory-box">
+
+          <div class="advisory-icon">
+            🌱
+          </div>
+
+
+          <div class="advisory-content">
+
+            <span class="section-kicker">
+              AGRINEETI FIELD ADVISORY
+            </span>
+
+
+            <h2>
+              Observe • Identify • Act • Monitor
+            </h2>
+
+
+            <p>
+              Regular crop observation and early identification
+              are important for effective crop protection.
+              Always confirm the problem before taking control
+              action and follow locally recommended agricultural
+              practices.
+            </p>
+
+
+
+            <div class="advisory-points">
+
+
+              <div>
+
+                <span>
+                  01
+                </span>
+
+                <p>
+                  Observe the crop regularly.
+                </p>
+
+              </div>
+
+
+
+              <div>
+
+                <span>
+                  02
+                </span>
+
+                <p>
+                  Identify symptoms and possible causes.
+                </p>
+
+              </div>
+
+
+
+              <div>
+
+                <span>
+                  03
+                </span>
+
+                <p>
+                  Select appropriate crop-management measures.
+                </p>
+
+              </div>
+
+
+
+              <div>
+
+                <span>
+                  04
+                </span>
+
+                <p>
+                  Monitor the crop after taking action.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           BOTTOM NAVIGATION
+      ================================================== -->
+
+      <div class="bottom-navigation">
+
+
+        <a
+          routerLink="/crops"
+          class="secondary-button"
+        >
+
+          <span>
+            ←
+          </span>
+
+          Explore Crops
+
+        </a>
+
+
+
+        <a
+          routerLink="/disease-detection"
+          class="primary-button"
+        >
+
+          🔍
+
+          Disease Detection
+
+          <span>
+            →
+          </span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

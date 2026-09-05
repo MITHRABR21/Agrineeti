@@ -1,0 +1,73 @@
+<nav class="navbar">
+
+  <div class="navbar-container">
+
+    <!-- LOGO -->
+    <a routerLink="/" class="brand">
+
+      <div class="brand-icon">
+        🌱
+      </div>
+
+      <div class="brand-text">
+        <span class="brand-name">AgriNeeti</span>
+        <span class="brand-tagline">SMART CROP KNOWLEDGE</span>
+      </div>
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+    <div class="nav-links">
+
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </a>
+
+      <a
+        routerLink="/crops"
+        routerLinkActive="active"
+      >
+        Crops
+      </a>
+
+      <a
+        routerLink="/disease-detection"
+        routerLinkActive="active"
+      >
+        Disease Detection
+      </a>
+
+      <a
+        routerLink="/knowledge-base"
+        routerLinkActive="active"
+      >
+        Knowledge Base
+      </a>
+
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+      >
+        About
+      </a>
+
+    </div>
+
+
+    <!-- ACTION -->
+    <a
+      routerLink="/disease-detection"
+      class="nav-action"
+    >
+      <span>Detect Disease</span>
+      <span class="arrow">→</span>
+    </a>
+
+  </div>
+
+</nav>

@@ -1,0 +1,706 @@
+/* =========================================================
+   AGRINEETI — CROPS PAGE
+   PREMIUM FOREST GREEN + EMERALD + SOFT GOLD
+   ========================================================= */
+
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+:host * {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.crops-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(53, 166, 111, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 25%,
+      rgba(212, 180, 106, 0.055),
+      transparent 25%
+    ),
+    #071f16;
+
+  color: #f4f1e8;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.crops-hero {
+  position: relative;
+
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(53, 166, 111, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(212, 180, 106, 0.06),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(4, 21, 14, 0.98),
+      rgba(7, 31, 22, 0.96),
+      rgba(13, 51, 36, 0.91)
+    ),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================================================
+   HERO GRID TEXTURE
+   ========================================================= */
+
+.crops-hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HERO GLOW
+   ========================================================= */
+
+.crops-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -190px;
+  top: -180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(53, 166, 111, 0.14),
+      rgba(53, 166, 111, 0.025) 55%,
+      transparent 72%
+    );
+
+  filter: blur(4px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+
+  width: min(1200px, 92%);
+
+  margin: 0 auto;
+
+  padding: 105px 0;
+}
+
+.small-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 22px;
+
+  color: #d4b46a;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+.small-label::before {
+  content: "";
+
+  width: 28px;
+  height: 1px;
+
+  background: #d4b46a;
+
+  opacity: 0.8;
+}
+
+.hero-text h1 {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: #f4f1e8;
+
+  font-size: clamp(3.2rem, 7vw, 6.8rem);
+
+  line-height: 0.96;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 800;
+}
+
+.hero-text h1 span {
+  color: #d4b46a;
+}
+
+.hero-text p {
+  max-width: 680px;
+
+  margin: 28px 0 0;
+
+  color: #aebeb3;
+
+  font-size: 1.05rem;
+
+  line-height: 1.85;
+}
+
+/* =========================================================
+   DISTRICT SECTION
+   ========================================================= */
+
+.district-section {
+  width: min(1280px, 92%);
+
+  margin: 0 auto;
+
+  padding: 95px 0 115px;
+}
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+  max-width: 780px;
+
+  margin-bottom: 38px;
+}
+
+.section-label {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: #d4b46a;
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  color: #f4f1e8;
+
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+
+  line-height: 1.04;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 800;
+}
+
+.section-heading p {
+  max-width: 720px;
+
+  margin: 17px 0 0;
+
+  color: #81968a;
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-box {
+  width: min(540px, 100%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 45px;
+
+  padding: 15px 18px;
+
+  border: 1px solid rgba(53, 166, 111, 0.18);
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 58, 41, 0.86),
+      rgba(11, 43, 30, 0.92)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(14px);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.search-box:focus-within {
+  border-color: rgba(212, 180, 106, 0.48);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.22),
+    0 0 0 4px rgba(212, 180, 106, 0.045);
+}
+
+.search-box span {
+  flex: 0 0 auto;
+
+  color: #d4b46a;
+
+  font-size: 1.05rem;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #f4f1e8;
+
+  font-family: inherit;
+
+  font-size: 0.92rem;
+}
+
+.search-box input::placeholder {
+  color: #81968a;
+}
+
+/* =========================================================
+   DISTRICT GRID
+   ========================================================= */
+
+.district-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+  align-items: stretch;
+}
+
+/* =========================================================
+   DISTRICT CARD
+   ========================================================= */
+
+.district-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid rgba(53, 166, 111, 0.16);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 58, 41, 0.96),
+      rgba(11, 43, 30, 0.98)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.district-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(212, 180, 106, 0.34);
+
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.28),
+    0 0 35px rgba(53, 166, 111, 0.055);
+}
+
+/* =========================================================
+   DISTRICT IMAGE
+   ========================================================= */
+
+.district-image {
+  position: relative;
+
+  height: 235px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+.coimbatore-image {
+  background-image:
+    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=85");
+}
+
+.erode-image {
+  background-image:
+    url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=85");
+}
+
+.salem-image {
+  background-image:
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85");
+}
+
+.thanjavur-image {
+  background-image:
+    url("https://images.unsplash.com/photo-1535090467336-9501f96eef89?auto=format&fit=crop&w=1000&q=85");
+}
+
+.trichy-image {
+  background-image:
+    url("https://images.unsplash.com/photo-1523742810674-d3a52cba7b0d?auto=format&fit=crop&w=1000&q=85");
+}
+
+.tiruppur-image {
+  background-image:
+    url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1000&q=85");
+}
+
+/* =========================================================
+   IMAGE OVERLAY
+   ========================================================= */
+
+.image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7, 31, 22, 0.08),
+      rgba(7, 31, 22, 0.28) 40%,
+      rgba(4, 21, 14, 0.88) 100%
+    );
+}
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.district-number {
+  position: absolute;
+
+  top: 17px;
+  right: 17px;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(212, 180, 106, 0.32);
+
+  border-radius: 50%;
+
+  background:
+    rgba(7, 31, 22, 0.62);
+
+  backdrop-filter: blur(12px);
+
+  color: #e1c77f;
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.district-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 27px;
+}
+
+.district-state {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #d4b46a;
+
+  font-size: 0.64rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.district-content h3 {
+  margin: 0;
+
+  color: #f4f1e8;
+
+  font-size: 1.55rem;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+.district-content p {
+  margin: 13px 0 20px;
+
+  color: #8fa398;
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CROP PREVIEW
+   ========================================================= */
+
+.crop-preview {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-bottom: 23px;
+}
+
+.crop-preview span {
+  padding: 7px 10px;
+
+  border: 1px solid rgba(53, 166, 111, 0.16);
+
+  border-radius: 999px;
+
+  background: rgba(53, 166, 111, 0.07);
+
+  color: #a9d5ba;
+
+  font-size: 0.68rem;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.district-content button {
+  width: 100%;
+
+  margin-top: auto;
+
+  padding: 13px 17px;
+
+  border: 1px solid rgba(212, 180, 106, 0.4);
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d4b46a,
+      #e1c77f
+    );
+
+  color: #071f16;
+
+  font-family: inherit;
+
+  font-size: 0.82rem;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.16);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.district-content button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.04);
+
+  box-shadow:
+    0 13px 28px rgba(0, 0, 0, 0.24);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+  .district-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .crops-hero {
+    min-height: 420px;
+  }
+
+  .hero-text {
+    padding: 75px 0;
+  }
+
+  .hero-text h1 {
+    letter-spacing: -0.045em;
+  }
+
+  .district-section {
+    padding: 70px 0 85px;
+  }
+
+  .district-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .district-image {
+    height: 215px;
+  }
+}
+
+@media (max-width: 450px) {
+  .hero-text {
+    width: calc(100% - 10px);
+  }
+
+  .hero-text h1 {
+    font-size: 2.65rem;
+  }
+
+  .hero-text p {
+    font-size: 0.92rem;
+  }
+
+  .district-content {
+    padding: 23px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

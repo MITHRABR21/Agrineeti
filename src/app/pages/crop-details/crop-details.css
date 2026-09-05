@@ -1,0 +1,1982 @@
+/* =========================================================
+AGRINEETI — CROP DETAILS
+Premium Dark Forest Green + Emerald + Soft Gold
+========================================================= */
+
+:host {
+display: block;
+min-height: 100vh;
+background: var(--background, #071f16);
+}
+
+:host * {
+box-sizing: border-box;
+}
+
+/* =========================================================
+MAIN PAGE
+========================================================= */
+
+.crop-details-page {
+min-height: 100vh;
+overflow-x: hidden;
+
+color: var(--text-primary, #f4f1e8);
+
+background:
+radial-gradient(
+circle at 10% 8%,
+rgba(31, 122, 82, 0.16),
+transparent 28%
+),
+radial-gradient(
+circle at 90% 12%,
+rgba(212, 180, 106, 0.08),
+transparent 24%
+),
+radial-gradient(
+circle at 50% 70%,
+rgba(23, 107, 77, 0.08),
+transparent 32%
+),
+#071f16;
+}
+
+/* =========================================================
+HERO
+========================================================= */
+
+.details-hero {
+position: relative;
+min-height: 560px;
+padding: 48px 0 110px;
+overflow: hidden;
+
+background:
+linear-gradient(
+135deg,
+rgba(7, 31, 22, 0.98),
+rgba(11, 43, 30, 0.96)
+),
+radial-gradient(
+circle at 15% 20%,
+rgba(53, 166, 111, 0.18),
+transparent 30%
+),
+radial-gradient(
+circle at 85% 30%,
+rgba(212, 180, 106, 0.10),
+transparent 28%
+);
+
+border-bottom: 1px solid rgba(53, 166, 111, 0.12);
+}
+
+.details-hero::before {
+content: "";
+position: absolute;
+inset: 0;
+
+background-image:
+linear-gradient(
+rgba(53, 166, 111, 0.035) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(53, 166, 111, 0.035) 1px,
+transparent 1px
+);
+
+background-size: 54px 54px;
+pointer-events: none;
+}
+
+.details-hero::after {
+content: "";
+position: absolute;
+
+width: 420px;
+height: 420px;
+
+right: -160px;
+top: -150px;
+
+border-radius: 50%;
+
+background: rgba(53, 166, 111, 0.09);
+
+filter: blur(80px);
+pointer-events: none;
+}
+
+/* =========================================================
+HERO DECORATIONS
+========================================================= */
+
+.hero-decoration {
+position: absolute;
+border-radius: 50%;
+pointer-events: none;
+}
+
+.hero-decoration-one {
+width: 180px;
+height: 180px;
+
+left: -70px;
+top: 90px;
+
+border: 1px solid rgba(53, 166, 111, 0.10);
+
+box-shadow:
+0 0 70px rgba(31, 122, 82, 0.10);
+}
+
+.hero-decoration-two {
+width: 260px;
+height: 260px;
+
+right: -120px;
+bottom: 20px;
+
+border: 1px solid rgba(212, 180, 106, 0.08);
+}
+
+.hero-decoration-three {
+width: 90px;
+height: 90px;
+
+right: 15%;
+top: 22%;
+
+background: rgba(212, 180, 106, 0.035);
+
+border: 1px solid rgba(212, 180, 106, 0.08);
+}
+
+/* =========================================================
+CONTAINER
+========================================================= */
+
+.details-container {
+position: relative;
+z-index: 2;
+
+width: min(1180px, calc(100% - 40px));
+margin: 0 auto;
+}
+
+/* =========================================================
+BACK LINK
+========================================================= */
+
+.back-link {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+
+padding: 10px 15px;
+
+color: var(--text-secondary, #aebeb3);
+text-decoration: none;
+
+background: rgba(11, 43, 30, 0.72);
+
+border: 1px solid rgba(53, 166, 111, 0.18);
+border-radius: 12px;
+
+font-size: 13px;
+font-weight: 600;
+
+backdrop-filter: blur(12px);
+
+transition:
+color 0.25s ease,
+background 0.25s ease,
+border-color 0.25s ease,
+transform 0.25s ease;
+}
+
+.back-link:hover {
+color: var(--gold-light, #e1c77f);
+
+background: rgba(16, 58, 41, 0.9);
+
+border-color: rgba(212, 180, 106, 0.32);
+
+transform: translateX(-3px);
+}
+
+.back-link:focus-visible {
+outline: 2px solid var(--gold, #d4b46a);
+outline-offset: 3px;
+}
+
+/* =========================================================
+LOADING
+========================================================= */
+
+.loading-state {
+min-height: 60vh;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+gap: 18px;
+
+color: var(--text-secondary, #aebeb3);
+}
+
+.loading-spinner {
+width: 42px;
+height: 42px;
+
+border: 3px solid rgba(53, 166, 111, 0.18);
+border-top-color: var(--gold, #d4b46a);
+
+border-radius: 50%;
+
+animation: cropDetailsSpin 0.9s linear infinite;
+}
+
+@keyframes cropDetailsSpin {
+to {
+transform: rotate(360deg);
+}
+}
+
+/* =========================================================
+NOT FOUND
+========================================================= */
+
+.not-found {
+min-height: 65vh;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+padding: 60px 20px;
+
+text-align: center;
+}
+
+.not-found-icon {
+width: 80px;
+height: 80px;
+
+display: grid;
+place-items: center;
+
+margin-bottom: 20px;
+
+background: rgba(23, 107, 77, 0.18);
+
+border: 1px solid rgba(53, 166, 111, 0.22);
+border-radius: 24px;
+
+font-size: 36px;
+}
+
+.not-found h2 {
+margin: 0 0 10px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 30px;
+}
+
+.not-found p {
+max-width: 560px;
+
+margin: 0 0 25px;
+
+color: var(--text-secondary, #aebeb3);
+
+line-height: 1.7;
+}
+
+/* =========================================================
+HERO CONTENT
+========================================================= */
+
+.hero-content {
+max-width: 850px;
+margin-top: 75px;
+}
+
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+
+margin-bottom: 24px;
+padding: 9px 14px;
+
+color: var(--text-secondary, #aebeb3);
+
+background:
+linear-gradient(
+135deg,
+rgba(31, 122, 82, 0.22),
+rgba(23, 107, 77, 0.12)
+);
+
+border: 1px solid rgba(212, 180, 106, 0.18);
+border-radius: 999px;
+
+font-size: 12px;
+font-weight: 700;
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+
+.badge-separator {
+width: 4px;
+height: 4px;
+
+border-radius: 50%;
+
+background: var(--gold, #d4b46a);
+}
+
+.hero-icon {
+width: 76px;
+height: 76px;
+
+display: grid;
+place-items: center;
+
+margin-bottom: 22px;
+
+background:
+linear-gradient(
+145deg,
+rgba(31, 122, 82, 0.30),
+rgba(11, 43, 30, 0.85)
+);
+
+border: 1px solid rgba(212, 180, 106, 0.20);
+border-radius: 22px;
+
+box-shadow:
+0 18px 45px rgba(0, 0, 0, 0.24),
+0 0 35px rgba(31, 122, 82, 0.10);
+
+font-size: 37px;
+}
+
+.hero-category {
+margin-bottom: 10px;
+
+color: var(--gold-light, #e1c77f);
+
+font-size: 13px;
+font-weight: 800;
+
+letter-spacing: 0.12em;
+text-transform: uppercase;
+}
+
+.hero-content h1 {
+margin: 0;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: clamp(42px, 6vw, 70px);
+line-height: 1.03;
+
+letter-spacing: -0.035em;
+font-weight: 800;
+}
+
+.hero-subtitle {
+margin: 18px 0 0;
+
+color: var(--emerald-light, #35a66f);
+
+font-size: 18px;
+font-weight: 600;
+}
+
+.hero-description {
+max-width: 780px;
+
+margin: 18px 0 0;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 15px;
+line-height: 1.85;
+}
+
+.hero-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 9px;
+
+margin-top: 24px;
+}
+
+.hero-tags span {
+display: inline-flex;
+align-items: center;
+
+padding: 8px 12px;
+
+color: var(--text-secondary, #aebeb3);
+
+background: rgba(7, 31, 22, 0.58);
+
+border: 1px solid rgba(53, 166, 111, 0.17);
+border-radius: 999px;
+
+font-size: 12px;
+font-weight: 600;
+}
+
+/* =========================================================
+MAIN CONTENT
+========================================================= */
+
+.details-main {
+position: relative;
+z-index: 4;
+
+margin-top: -55px;
+padding-bottom: 80px;
+}
+
+/* =========================================================
+QUICK SUMMARY
+========================================================= */
+
+.quick-summary {
+display: grid;
+
+grid-template-columns: repeat(4, minmax(0, 1fr));
+
+gap: 16px;
+
+margin-bottom: 58px;
+}
+
+.summary-card {
+min-height: 125px;
+
+padding: 22px;
+
+background:
+linear-gradient(
+145deg,
+rgba(16, 58, 41, 0.94),
+rgba(11, 43, 30, 0.96)
+);
+
+border: 1px solid rgba(53, 166, 111, 0.17);
+border-radius: var(--radius-md, 16px);
+
+box-shadow:
+var(--shadow-soft, 0 12px 35px rgba(0, 0, 0, 0.18));
+
+transition:
+transform 0.25s ease,
+border-color 0.25s ease,
+box-shadow 0.25s ease;
+}
+
+.summary-card:hover {
+transform: translateY(-5px);
+
+border-color: rgba(212, 180, 106, 0.28);
+
+box-shadow:
+0 22px 48px rgba(0, 0, 0, 0.28),
+0 0 25px rgba(31, 122, 82, 0.08);
+}
+
+.summary-icon {
+width: 42px;
+height: 42px;
+
+display: grid;
+place-items: center;
+
+margin-bottom: 15px;
+
+background: rgba(31, 122, 82, 0.18);
+
+border: 1px solid rgba(53, 166, 111, 0.18);
+border-radius: 12px;
+
+font-size: 20px;
+}
+
+.summary-label {
+color: var(--text-muted, #81968a);
+
+font-size: 11px;
+font-weight: 700;
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+
+.summary-card strong {
+display: block;
+
+margin-top: 5px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 15px;
+line-height: 1.4;
+}
+
+/* =========================================================
+INFORMATION SECTIONS
+========================================================= */
+
+.information-section,
+.requirements-section,
+.importance-section,
+.monitoring-section,
+.diseases-section,
+.advisory-section {
+margin-bottom: 65px;
+}
+
+.section-heading {
+display: block;
+margin-bottom: 24px;
+}
+
+.section-heading .section-kicker {
+display: block;
+
+margin-bottom: 8px;
+
+color: var(--gold-light, #e1c77f);
+
+font-size: 11px;
+font-weight: 800;
+
+letter-spacing: 0.13em;
+text-transform: uppercase;
+}
+
+.section-heading h2 {
+margin: 0;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: clamp(26px, 3vw, 36px);
+line-height: 1.2;
+
+letter-spacing: -0.025em;
+}
+
+.section-heading > p {
+max-width: 850px;
+
+margin: 10px 0 0;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.75;
+}
+
+/* =========================================================
+INFORMATION CARD
+========================================================= */
+
+.information-card {
+display: flex;
+align-items: flex-start;
+
+gap: 22px;
+
+padding: 28px;
+
+background:
+linear-gradient(
+145deg,
+rgba(16, 58, 41, 0.90),
+rgba(11, 43, 30, 0.96)
+);
+
+border: 1px solid rgba(53, 166, 111, 0.16);
+border-radius: var(--radius-lg, 22px);
+
+box-shadow:
+var(--shadow-soft, 0 12px 35px rgba(0, 0, 0, 0.18));
+
+transition:
+border-color 0.25s ease,
+transform 0.25s ease;
+}
+
+.information-card:hover {
+border-color: rgba(212, 180, 106, 0.25);
+transform: translateY(-3px);
+}
+
+.information-icon {
+flex: 0 0 auto;
+
+width: 52px;
+height: 52px;
+
+display: grid;
+place-items: center;
+
+background: rgba(31, 122, 82, 0.20);
+
+border: 1px solid rgba(212, 180, 106, 0.18);
+border-radius: 15px;
+
+font-size: 23px;
+}
+
+.information-content {
+min-width: 0;
+}
+
+.information-label {
+margin-bottom: 8px;
+
+color: var(--gold-light, #e1c77f);
+
+font-size: 11px;
+font-weight: 800;
+
+letter-spacing: 0.09em;
+text-transform: uppercase;
+}
+
+.information-content p {
+margin: 0;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.85;
+}
+
+/* =========================================================
+REQUIREMENTS
+========================================================= */
+
+.requirements-grid {
+display: grid;
+
+grid-template-columns: repeat(3, minmax(0, 1fr));
+
+gap: 17px;
+}
+
+.requirement-card {
+display: flex;
+align-items: flex-start;
+
+gap: 15px;
+
+min-height: 130px;
+
+padding: 21px;
+
+background: #0b2b1e;
+
+border: 1px solid rgba(53, 166, 111, 0.15);
+border-radius: var(--radius-md, 16px);
+
+transition:
+transform 0.25s ease,
+border-color 0.25s ease,
+background 0.25s ease;
+}
+
+.requirement-card:hover {
+transform: translateY(-4px);
+
+background: #103a29;
+
+border-color: rgba(212, 180, 106, 0.24);
+}
+
+.requirement-icon {
+flex: 0 0 auto;
+
+width: 42px;
+height: 42px;
+
+display: grid;
+place-items: center;
+
+background: rgba(31, 122, 82, 0.17);
+
+border: 1px solid rgba(53, 166, 111, 0.18);
+border-radius: 12px;
+
+font-size: 19px;
+}
+
+.requirement-content {
+min-width: 0;
+}
+
+.requirement-label {
+margin-bottom: 6px;
+
+color: var(--gold-light, #e1c77f);
+
+font-size: 12px;
+font-weight: 800;
+}
+
+.requirement-content p {
+margin: 0;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 13px;
+line-height: 1.65;
+}
+
+/* =========================================================
+IMPORTANCE
+========================================================= */
+
+.importance-card {
+position: relative;
+overflow: hidden;
+
+display: flex;
+align-items: flex-start;
+
+gap: 22px;
+
+padding: 30px;
+
+background:
+linear-gradient(
+135deg,
+rgba(23, 107, 77, 0.45),
+rgba(11, 43, 30, 0.98)
+);
+
+border: 1px solid rgba(212, 180, 106, 0.20);
+border-radius: var(--radius-lg, 22px);
+
+box-shadow:
+0 20px 55px rgba(0, 0, 0, 0.24),
+0 0 45px rgba(31, 122, 82, 0.07);
+}
+
+.importance-card::after {
+content: "";
+
+position: absolute;
+
+width: 250px;
+height: 250px;
+
+right: -100px;
+top: -120px;
+
+border-radius: 50%;
+
+background: rgba(212, 180, 106, 0.06);
+
+filter: blur(25px);
+
+pointer-events: none;
+}
+
+.importance-icon {
+position: relative;
+z-index: 1;
+
+flex: 0 0 auto;
+
+width: 54px;
+height: 54px;
+
+display: grid;
+place-items: center;
+
+background: rgba(212, 180, 106, 0.10);
+
+border: 1px solid rgba(212, 180, 106, 0.24);
+border-radius: 15px;
+
+font-size: 24px;
+}
+
+.importance-content {
+position: relative;
+z-index: 1;
+}
+
+.importance-content h3 {
+margin: 0 0 9px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 20px;
+}
+
+.importance-content p {
+margin: 0;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.8;
+}
+
+/* =========================================================
+MONITORING
+========================================================= */
+
+.monitoring-card {
+display: flex;
+align-items: flex-start;
+
+gap: 22px;
+
+padding: 27px;
+
+background: #0b2b1e;
+
+border: 1px solid rgba(53, 166, 111, 0.15);
+border-radius: var(--radius-lg, 22px);
+
+box-shadow:
+var(--shadow-soft, 0 12px 35px rgba(0, 0, 0, 0.18));
+}
+
+.monitoring-content {
+flex: 1;
+min-width: 0;
+}
+
+.monitoring-icon {
+flex: 0 0 auto;
+
+width: 52px;
+height: 52px;
+
+display: grid;
+place-items: center;
+
+background: rgba(31, 122, 82, 0.18);
+
+border: 1px solid rgba(212, 180, 106, 0.18);
+border-radius: 15px;
+
+font-size: 23px;
+}
+
+.monitoring-content h3 {
+margin: 0 0 8px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 19px;
+}
+
+.monitoring-content > p {
+margin: 0 0 18px;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.75;
+}
+
+.monitoring-points {
+display: grid;
+
+grid-template-columns: repeat(2, minmax(0, 1fr));
+
+gap: 10px;
+}
+
+.monitoring-point {
+display: flex;
+align-items: flex-start;
+
+gap: 9px;
+
+padding: 13px 14px;
+
+background: #0d3324;
+
+border: 1px solid rgba(53, 166, 111, 0.13);
+border-radius: 12px;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 13px;
+line-height: 1.6;
+}
+
+.monitoring-point::before {
+content: "✓";
+
+flex: 0 0 auto;
+
+color: var(--gold-light, #e1c77f);
+
+font-weight: 800;
+}
+
+/* =========================================================
+DISEASE SECTION HEADER
+========================================================= */
+
+.disease-section-header {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+
+gap: 20px;
+
+margin-bottom: 24px;
+}
+
+.disease-count-badge {
+flex: 0 0 auto;
+
+display: inline-flex;
+align-items: center;
+
+gap: 7px;
+
+padding: 9px 13px;
+
+color: var(--gold-light, #e1c77f);
+
+background: rgba(31, 122, 82, 0.16);
+
+border: 1px solid rgba(212, 180, 106, 0.20);
+border-radius: 999px;
+
+font-size: 12px;
+font-weight: 800;
+}
+
+/* =========================================================
+DISEASE GRID
+========================================================= */
+
+.disease-grid {
+display: grid;
+
+grid-template-columns: repeat(3, minmax(0, 1fr));
+
+gap: 20px;
+
+align-items: stretch;
+
+grid-auto-rows: 1fr;
+}
+
+/* =========================================================
+DISEASE CARD
+========================================================= */
+
+.disease-card {
+min-width: 0;
+
+height: 100%;
+min-height: 410px;
+
+display: flex;
+flex-direction: column;
+
+overflow: hidden;
+
+background:
+linear-gradient(
+145deg,
+rgba(16, 58, 41, 0.94),
+rgba(11, 43, 30, 0.98)
+);
+
+border: 1px solid rgba(53, 166, 111, 0.15);
+border-radius: var(--radius-lg, 22px);
+
+box-shadow:
+0 14px 38px rgba(0, 0, 0, 0.20);
+
+transition:
+transform 0.28s ease,
+border-color 0.28s ease,
+box-shadow 0.28s ease;
+}
+
+.disease-card:hover {
+transform: translateY(-7px);
+
+border-color: rgba(212, 180, 106, 0.30);
+
+box-shadow:
+0 25px 60px rgba(0, 0, 0, 0.30),
+0 0 30px rgba(31, 122, 82, 0.08);
+}
+
+/* =========================================================
+DISEASE CARD TOP
+========================================================= */
+
+.disease-card-top {
+min-height: 88px;
+
+display: grid;
+
+grid-template-columns:
+42px
+52px
+minmax(0, 1fr);
+
+align-items: center;
+
+gap: 12px;
+
+padding: 17px 19px;
+
+border-bottom: 1px solid rgba(53, 166, 111, 0.12);
+}
+
+.disease-number {
+width: 34px;
+height: 34px;
+
+display: grid;
+place-items: center;
+
+color: var(--gold-light, #e1c77f);
+
+background: rgba(212, 180, 106, 0.07);
+
+border: 1px solid rgba(212, 180, 106, 0.20);
+border-radius: 10px;
+
+font-size: 11px;
+font-weight: 800;
+}
+
+.disease-icon {
+width: 48px;
+height: 48px;
+
+display: grid;
+place-items: center;
+
+background: rgba(31, 122, 82, 0.18);
+
+border: 1px solid rgba(53, 166, 111, 0.18);
+border-radius: 13px;
+
+font-size: 22px;
+}
+
+.disease-category {
+min-width: 0;
+
+color: var(--gold-light, #e1c77f);
+
+font-size: 11px;
+font-weight: 800;
+
+letter-spacing: 0.07em;
+text-transform: uppercase;
+
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+/* =========================================================
+DISEASE CARD CONTENT
+========================================================= */
+
+.disease-card-content {
+flex: 1 1 auto;
+
+display: flex;
+flex-direction: column;
+
+padding: 20px;
+}
+
+.disease-card-content h3 {
+margin: 0 0 10px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 19px;
+line-height: 1.3;
+
+letter-spacing: -0.015em;
+}
+
+.disease-card-content > p {
+margin: 0;
+
+min-height: 75px;
+
+display: -webkit-box;
+
+line-clamp: 3;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+
+overflow: hidden;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.75;
+}
+
+/* =========================================================
+DISEASE PREVIEW
+========================================================= */
+
+.disease-preview {
+min-height: 76px;
+
+margin-top: 16px;
+padding: 14px 15px;
+
+background: #071f16;
+
+border: 1px solid rgba(53, 166, 111, 0.14);
+border-radius: 13px;
+}
+
+.preview-label {
+display: block;
+
+margin-bottom: 6px;
+
+color: var(--gold-light, #e1c77f);
+
+font-size: 10px;
+font-weight: 800;
+
+letter-spacing: 0.10em;
+text-transform: uppercase;
+}
+
+.disease-preview span:not(.preview-label) {
+display: block;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 12px;
+line-height: 1.6;
+}
+
+/* =========================================================
+DISEASE CARD FOOTER
+========================================================= */
+
+.disease-card-footer {
+min-height: 76px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 15px;
+
+margin-top: auto;
+padding: 16px 20px;
+
+border-top: 1px solid rgba(53, 166, 111, 0.11);
+}
+
+.disease-info-counts {
+display: flex;
+flex-wrap: wrap;
+
+gap: 6px;
+}
+
+.disease-info-counts span {
+display: inline-flex;
+align-items: center;
+
+padding: 6px 8px;
+
+color: var(--text-muted, #81968a);
+
+background: rgba(7, 31, 22, 0.70);
+
+border: 1px solid rgba(53, 166, 111, 0.12);
+border-radius: 8px;
+
+font-size: 10px;
+font-weight: 700;
+}
+
+.disease-view-button {
+flex: 0 0 auto;
+
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+gap: 7px;
+
+padding: 9px 12px;
+
+color: var(--gold-light, #e1c77f);
+
+background: rgba(31, 122, 82, 0.12);
+
+border: 1px solid rgba(212, 180, 106, 0.20);
+border-radius: 10px;
+
+text-decoration: none;
+
+font-size: 12px;
+font-weight: 800;
+
+transition:
+background 0.25s ease,
+color 0.25s ease,
+border-color 0.25s ease,
+transform 0.25s ease;
+}
+
+.disease-view-button:hover {
+color: #071f16;
+
+background: var(--gold-light, #e1c77f);
+
+border-color: var(--gold-light, #e1c77f);
+
+transform: translateX(3px);
+}
+
+.disease-view-button:focus-visible {
+outline: 2px solid var(--gold-light, #e1c77f);
+outline-offset: 3px;
+}
+
+/* =========================================================
+EMPTY DISEASE STATE
+========================================================= */
+
+.empty-diseases-card {
+padding: 38px;
+
+text-align: center;
+
+background: #0b2b1e;
+
+border: 1px dashed rgba(53, 166, 111, 0.22);
+border-radius: var(--radius-lg, 22px);
+}
+
+.empty-diseases-card h3 {
+margin: 0 0 8px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 20px;
+}
+
+.empty-diseases-card p {
+max-width: 620px;
+
+margin: 0 auto;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.75;
+}
+
+/* =========================================================
+ADVISORY
+========================================================= */
+
+.advisory-box {
+position: relative;
+overflow: hidden;
+
+display: flex;
+align-items: flex-start;
+
+gap: 22px;
+
+padding: 30px;
+
+background:
+linear-gradient(
+135deg,
+rgba(23, 107, 77, 0.45),
+rgba(11, 43, 30, 0.98)
+);
+
+border: 1px solid rgba(212, 180, 106, 0.20);
+border-radius: var(--radius-lg, 22px);
+
+box-shadow:
+0 20px 55px rgba(0, 0, 0, 0.22);
+}
+
+.advisory-box::before {
+content: "";
+
+position: absolute;
+
+width: 300px;
+height: 300px;
+
+right: -120px;
+top: -140px;
+
+border-radius: 50%;
+
+background: rgba(212, 180, 106, 0.055);
+
+filter: blur(30px);
+
+pointer-events: none;
+}
+
+.advisory-icon {
+position: relative;
+z-index: 1;
+
+flex: 0 0 auto;
+
+width: 56px;
+height: 56px;
+
+display: grid;
+place-items: center;
+
+background: rgba(212, 180, 106, 0.10);
+
+border: 1px solid rgba(212, 180, 106, 0.22);
+border-radius: 16px;
+
+font-size: 25px;
+}
+
+.advisory-content {
+position: relative;
+z-index: 1;
+
+flex: 1;
+}
+
+.advisory-content h3 {
+margin: 0 0 9px;
+
+color: var(--text-primary, #f4f1e8);
+
+font-size: 20px;
+}
+
+.advisory-content > p {
+margin: 0 0 17px;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 14px;
+line-height: 1.75;
+}
+
+.advisory-points {
+display: grid;
+
+grid-template-columns: repeat(2, minmax(0, 1fr));
+
+gap: 9px;
+}
+
+.advisory-points div {
+display: flex;
+align-items: flex-start;
+
+gap: 9px;
+
+padding: 12px 13px;
+
+background: rgba(7, 31, 22, 0.45);
+
+border: 1px solid rgba(53, 166, 111, 0.12);
+border-radius: 11px;
+
+color: var(--text-secondary, #aebeb3);
+
+font-size: 12px;
+line-height: 1.6;
+}
+
+.advisory-points div::before {
+content: "✓";
+
+color: var(--gold-light, #e1c77f);
+
+font-weight: 800;
+}
+
+/* =========================================================
+BOTTOM NAVIGATION
+========================================================= */
+
+.bottom-navigation {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 18px;
+
+padding-top: 10px;
+
+border-top: 1px solid rgba(53, 166, 111, 0.12);
+}
+
+.primary-button,
+.secondary-button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+gap: 9px;
+
+min-height: 46px;
+
+padding: 0 18px;
+
+border-radius: 12px;
+
+text-decoration: none;
+
+font-size: 13px;
+font-weight: 800;
+
+transition:
+transform 0.25s ease,
+background 0.25s ease,
+border-color 0.25s ease,
+color 0.25s ease,
+box-shadow 0.25s ease;
+}
+
+.primary-button {
+color: #071f16;
+
+background:
+linear-gradient(
+135deg,
+var(--gold-light, #e1c77f),
+var(--gold, #d4b46a)
+);
+
+border: 1px solid rgba(225, 199, 127, 0.65);
+
+box-shadow:
+0 10px 25px rgba(0, 0, 0, 0.20);
+}
+
+.primary-button:hover {
+color: #071f16;
+
+transform: translateY(-3px);
+
+background:
+linear-gradient(
+135deg,
+#ead38f,
+var(--gold-light, #e1c77f)
+);
+
+box-shadow:
+0 16px 32px rgba(0, 0, 0, 0.26),
+0 0 25px rgba(212, 180, 106, 0.10);
+}
+
+.secondary-button {
+color: var(--text-secondary, #aebeb3);
+
+background: rgba(11, 43, 30, 0.78);
+
+border: 1px solid rgba(53, 166, 111, 0.20);
+}
+
+.secondary-button:hover {
+color: var(--gold-light, #e1c77f);
+
+background: #103a29;
+
+border-color: rgba(212, 180, 106, 0.28);
+
+transform: translateY(-3px);
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+outline: 2px solid var(--gold-light, #e1c77f);
+outline-offset: 3px;
+}
+
+/* =========================================================
+ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+outline: 2px solid var(--gold-light, #e1c77f);
+outline-offset: 3px;
+}
+
+/* =========================================================
+RESPONSIVE — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+.details-container {
+width: min(100% - 32px, 1050px);
+}
+
+.quick-summary {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.requirements-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.disease-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+/* =========================================================
+RESPONSIVE — 1000px
+========================================================= */
+
+@media (max-width: 1000px) {
+
+.details-hero {
+min-height: 530px;
+padding-bottom: 100px;
+}
+
+.hero-content {
+margin-top: 65px;
+}
+
+.hero-content h1 {
+font-size: clamp(38px, 7vw, 58px);
+}
+
+.disease-card-top {
+grid-template-columns:
+34px
+50px
+minmax(0, 1fr);
+
+
+gap: 11px;
+
+
+}
+}
+
+/* =========================================================
+RESPONSIVE — 850px
+========================================================= */
+
+@media (max-width: 850px) {
+
+.details-hero {
+min-height: 500px;
+}
+
+.hero-content {
+margin-top: 55px;
+}
+
+.hero-icon {
+width: 68px;
+height: 68px;
+}
+
+.monitoring-points,
+.advisory-points {
+grid-template-columns: 1fr;
+}
+
+.importance-card,
+.monitoring-card,
+.advisory-box,
+.information-card {
+padding: 24px;
+}
+}
+
+/* =========================================================
+RESPONSIVE — 700px
+========================================================= */
+
+@media (max-width: 700px) {
+
+.details-container {
+width: min(100% - 26px, 620px);
+}
+
+.details-hero {
+min-height: auto;
+
+
+padding:
+  28px 0
+  85px;
+
+
+}
+
+.hero-content {
+margin-top: 48px;
+}
+
+.hero-content h1 {
+font-size: clamp(34px, 10vw, 48px);
+}
+
+.hero-description {
+font-size: 14px;
+}
+
+.details-main {
+margin-top: -45px;
+}
+
+.quick-summary {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+
+
+gap: 12px;
+
+margin-bottom: 48px;
+
+
+}
+
+.summary-card {
+min-height: 112px;
+padding: 17px;
+}
+
+.requirements-grid {
+grid-template-columns: 1fr;
+}
+
+.disease-grid {
+grid-template-columns: 1fr;
+grid-auto-rows: auto;
+}
+
+.disease-card {
+min-height: 0;
+}
+
+.disease-card-content > p {
+min-height: 0;
+
+
+line-clamp: 4;
+-webkit-line-clamp: 4;
+
+
+}
+
+.disease-section-header {
+align-items: flex-start;
+flex-direction: column;
+}
+
+.bottom-navigation {
+flex-direction: column-reverse;
+align-items: stretch;
+}
+
+.primary-button,
+.secondary-button {
+width: 100%;
+}
+}
+
+/* =========================================================
+RESPONSIVE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+.details-container {
+width: calc(100% - 24px);
+}
+
+.details-hero {
+padding-top: 22px;
+}
+
+.hero-content {
+margin-top: 42px;
+}
+
+.hero-badge {
+font-size: 10px;
+padding: 8px 11px;
+}
+
+.hero-icon {
+width: 60px;
+height: 60px;
+
+
+border-radius: 17px;
+
+font-size: 29px;
+
+
+}
+
+.hero-category {
+font-size: 11px;
+}
+
+.hero-content h1 {
+font-size: 34px;
+}
+
+.hero-subtitle {
+font-size: 16px;
+}
+
+.hero-tags {
+gap: 7px;
+}
+
+.hero-tags span {
+padding: 7px 10px;
+font-size: 10px;
+}
+
+.quick-summary {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 9px;
+}
+
+.summary-card {
+padding: 14px;
+}
+
+.summary-icon {
+width: 36px;
+height: 36px;
+
+
+margin-bottom: 11px;
+
+font-size: 17px;
+
+
+}
+
+.summary-label {
+font-size: 9px;
+}
+
+.summary-card strong {
+font-size: 12px;
+}
+
+.section-heading h2 {
+font-size: 26px;
+}
+
+.information-card,
+.importance-card,
+.monitoring-card,
+.advisory-box {
+flex-direction: column;
+
+
+gap: 15px;
+
+padding: 20px;
+
+
+}
+
+.information-icon,
+.importance-icon,
+.monitoring-icon,
+.advisory-icon {
+width: 46px;
+height: 46px;
+
+
+font-size: 20px;
+
+
+}
+
+.disease-card-top {
+grid-template-columns:
+30px
+48px
+minmax(0, 1fr);
+
+
+gap: 9px;
+
+padding: 14px 15px;
+
+
+}
+
+.disease-number {
+width: 30px;
+height: 30px;
+}
+
+.disease-icon {
+width: 44px;
+height: 44px;
+}
+
+.disease-card-content {
+padding: 17px;
+}
+
+.disease-card-content h3 {
+font-size: 17px;
+}
+
+.disease-card-footer {
+align-items: flex-start;
+flex-direction: column;
+
+
+padding: 14px 17px;
+
+
+}
+
+.disease-view-button {
+width: 100%;
+}
+
+.disease-info-counts {
+width: 100%;
+}
+}
+
+/* =========================================================
+RESPONSIVE — 420px
+========================================================= */
+
+@media (max-width: 420px) {
+
+.details-container {
+width: calc(100% - 18px);
+}
+
+.hero-content h1 {
+font-size: 30px;
+}
+
+.quick-summary {
+grid-template-columns: 1fr;
+}
+
+.summary-card {
+min-height: auto;
+}
+
+.monitoring-points {
+grid-template-columns: 1fr;
+}
+
+.disease-card-top {
+grid-template-columns:
+28px
+44px
+minmax(0, 1fr);
+
+
+gap: 8px;
+
+
+}
+
+.disease-number {
+width: 28px;
+height: 28px;
+
+
+font-size: 9px;
+
+
+}
+
+.disease-icon {
+width: 40px;
+height: 40px;
+
+
+font-size: 18px;
+
+
+}
+
+.disease-category {
+font-size: 9px;
+}
+
+.hero-tags span {
+font-size: 9px;
+}
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+*,
+*::before,
+*::after {
+scroll-behavior: auto !important;
+
+
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+
+transition-duration: 0.01ms !important;
+
+
+}
+}

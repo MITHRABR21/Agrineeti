@@ -1,0 +1,243 @@
+
+<div class="district-page">
+
+  <!-- =========================================
+       HERO
+  ========================================= -->
+
+  <section class="district-hero">
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        AGRINEETI • DISTRICT AGRICULTURE
+      </span>
+
+      <h1>
+        {{ districtName }}
+      </h1>
+
+      <p>
+        {{ districtDescription }}
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       CROP HEALTH SECTION
+  ========================================= -->
+
+  <section class="crop-health-section">
+
+    <!-- SECTION HEADING -->
+
+    <div class="section-heading">
+
+      <span class="section-small-title">
+        AGRICULTURAL INSIGHTS
+      </span>
+
+      <h2>
+        Explore Crop Health
+      </h2>
+
+      <p>
+        Discover crops cultivated in {{ districtName }}
+        and explore region-specific crop health information.
+      </p>
+
+    </div>
+
+
+    <!-- =========================================
+         CROP GRID
+    ========================================= -->
+
+    <div class="crop-grid">
+
+      <article
+        class="crop-card"
+        *ngFor="let crop of crops"
+      >
+
+        <!-- CROP IMAGE -->
+
+        <div class="crop-image">
+
+          <img
+            [src]="crop.image"
+            [alt]="crop.name"
+          >
+
+        </div>
+
+
+        <!-- CROP CONTENT -->
+
+        <div class="crop-content">
+
+          <!-- CATEGORY -->
+
+          <span class="crop-category">
+            {{ crop.category }}
+          </span>
+
+
+          <!-- CROP NAME -->
+
+          <h3>
+            {{ crop.name }}
+          </h3>
+
+
+          <!-- DESCRIPTION -->
+
+          <p class="crop-description">
+            {{ crop.description }}
+          </p>
+
+
+          <!-- =================================
+               COMMON PROBLEMS
+          ================================== -->
+
+          <div class="problem-section">
+
+            <span class="problem-title">
+              COMMON PROBLEMS
+            </span>
+
+            <div class="problem-list">
+
+              <span
+                class="problem-tag"
+                *ngFor="let problem of crop.commonProblems"
+              >
+                {{ problem }}
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================
+               DISEASES
+          ================================== -->
+
+          <div class="disease-section">
+
+            <span class="disease-title">
+              COMMON DISEASES
+            </span>
+
+            <div class="disease-list">
+
+              <button
+                type="button"
+                class="disease-tag"
+                *ngFor="let disease of crop.diseases"
+                (click)="exploreDisease(crop, disease)"
+              >
+                {{ disease }}
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================
+               EXPLORE CROP
+          ================================== -->
+
+          <button
+            type="button"
+            class="explore-button"
+            (click)="exploreCrop(crop)"
+          >
+
+            <span>
+              Explore {{ crop.name }}
+            </span>
+
+            <span class="arrow">
+              →
+            </span>
+
+          </button>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- =========================================
+         AI DISEASE DETECTION CTA
+    ========================================= -->
+
+    <section class="ai-detection-section">
+
+      <div class="ai-detection-card">
+
+
+        <!-- CAMERA ICON -->
+
+        <div class="ai-icon-box">
+
+          <span class="ai-camera-icon">
+            📷
+          </span>
+
+        </div>
+
+
+        <!-- CTA CONTENT -->
+
+        <div class="ai-detection-content">
+
+          <span class="ai-small-label">
+            AI-POWERED CROP HEALTH
+          </span>
+
+          <h3>
+            Have a problem with your crop?
+          </h3>
+
+          <p>
+            Let AgriNeeti analyze your crop and help identify
+            possible diseases using AI-powered crop health analysis.
+          </p>
+
+
+          <!-- DETECT DISEASE -->
+
+          <a
+            class="detect-disease-link"
+            routerLink="/disease-detection"
+          >
+
+            <span>
+              Detect Disease
+            </span>
+
+            <span class="detect-arrow">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </section>
+
+</div>

@@ -1,0 +1,867 @@
+<div class="disease-details-page">
+
+  <!-- =====================================================
+       LOADING
+  ====================================================== -->
+
+  <section class="details-loading" *ngIf="loading">
+
+```
+<div class="loading-card">
+
+  <div class="loading-spinner"></div>
+
+  <span class="loading-label">
+    AGRINEETI CROP HEALTH
+  </span>
+
+  <h2>
+    Loading Disease Information
+  </h2>
+
+  <p>
+    Please wait while AgriNeeti loads the crop health information.
+  </p>
+
+</div>
+```
+
+  </section>
+
+  <!-- =====================================================
+       NOT FOUND
+  ====================================================== -->
+
+  <section
+    class="disease-not-found"
+    *ngIf="!loading && !disease">
+
+```
+<div class="not-found-card">
+
+  <div class="not-found-icon">
+    🌿
+  </div>
+
+  <span class="not-found-label">
+    AGRINEETI CROP HEALTH
+  </span>
+
+  <h1>
+    Disease Information Not Found
+  </h1>
+
+  <p>
+    We could not find the requested disease or pest information
+    for this crop.
+  </p>
+
+  <div class="not-found-actions">
+
+    <a
+      routerLink="/crops"
+      class="primary-button">
+      Explore Crops
+    </a>
+
+    <a
+      routerLink="/"
+      class="secondary-button">
+      Back to Home
+    </a>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- =====================================================
+       MAIN DISEASE DETAILS
+  ====================================================== -->
+
+  <main
+    class="disease-content"
+    *ngIf="!loading && disease">
+
+```
+<!-- ===================================================
+     HERO
+==================================================== -->
+
+<section class="disease-hero">
+
+  <div class="hero-glow hero-glow-one"></div>
+  <div class="hero-glow hero-glow-two"></div>
+
+  <div class="hero-container">
+
+    <!-- Breadcrumb -->
+
+    <div class="breadcrumb">
+
+      <a routerLink="/">
+        Home
+      </a>
+
+      <span>/</span>
+
+      <a routerLink="/crops">
+        Crops
+      </a>
+
+      <span>/</span>
+
+      <span>
+        {{ cropName }}
+      </span>
+
+    </div>
+
+
+    <!-- Hero Content -->
+
+    <div class="hero-grid">
+
+      <div class="hero-text">
+
+        <div class="hero-badge">
+
+          <span class="badge-icon">
+            {{ getDiseaseIcon() }}
+          </span>
+
+          <span>
+            {{ getCategoryLabel() }}
+          </span>
+
+        </div>
+
+
+        <span class="hero-eyebrow">
+          AGRINEETI • CROP HEALTH ADVISORY
+        </span>
+
+
+        <h1>
+          {{ disease.name }}
+        </h1>
+
+
+        <p class="hero-description">
+          {{ disease.diseaseInformation }}
+        </p>
+
+
+        <div class="hero-meta">
+
+          <div class="meta-item">
+
+            <span class="meta-icon">
+              🌱
+            </span>
+
+            <div>
+              <small>
+                Crop
+              </small>
+
+              <strong>
+                {{ cropName }}
+              </strong>
+            </div>
+
+          </div>
+
+
+          <div class="meta-item">
+
+            <span class="meta-icon">
+              🔬
+            </span>
+
+            <div>
+              <small>
+                Type
+              </small>
+
+              <strong>
+                {{ disease.category }}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Hero Visual -->
+
+      <div class="hero-visual">
+
+        <div class="hero-orbit orbit-one"></div>
+        <div class="hero-orbit orbit-two"></div>
+
+        <div class="hero-icon-card">
+
+          <div class="hero-icon">
+            {{ getDiseaseIcon() }}
+          </div>
+
+          <span>
+            Crop Protection
+          </span>
+
+          <strong>
+            {{ cropName }}
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     DISEASE INFORMATION
+==================================================== -->
+
+<section
+  class="information-section"
+  *ngIf="hasDiseaseInformation()">
+
+  <div class="details-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        01
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          UNDERSTANDING THE PROBLEM
+        </span>
+
+        <h2>
+          Disease / Pest Information
+        </h2>
+
+        <p>
+          Understand the problem before taking management action.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="information-card">
+
+      <div class="information-icon">
+        {{ getDiseaseIcon() }}
+      </div>
+
+      <div class="information-text">
+
+        <h3>
+          About {{ disease.name }}
+        </h3>
+
+        <p>
+          {{ disease.diseaseInformation }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     SYMPTOMS
+==================================================== -->
+
+<section
+  class="content-section symptoms-section"
+  *ngIf="hasSymptoms()">
+
+  <div class="details-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        02
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          IDENTIFICATION
+        </span>
+
+        <h2>
+          Symptoms
+        </h2>
+
+        <p>
+          Important signs to observe carefully in the field.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="content-grid">
+
+      <div
+        class="content-card symptom-card"
+        *ngFor="
+          let item of disease.symptoms;
+          let i = index
+        ">
+
+        <div class="card-number">
+          {{ (i + 1).toString().padStart(2, '0') }}
+        </div>
+
+        <div class="card-icon">
+          🔎
+        </div>
+
+        <div class="card-content">
+
+          <span class="card-eyebrow">
+            FIELD OBSERVATION
+          </span>
+
+          <h3>
+            Symptom {{ i + 1 }}
+          </h3>
+
+          <p>
+            {{ item }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     CAUSE
+==================================================== -->
+
+<section class="cause-section">
+
+  <div class="details-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        03
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          WHY IT OCCURS
+        </span>
+
+        <h2>
+          Cause
+        </h2>
+
+        <p>
+          Identify the main source or reason behind the problem.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="cause-card">
+
+      <div class="cause-icon">
+        🧬
+      </div>
+
+      <div class="cause-content">
+
+        <span>
+          PRIMARY CAUSE
+        </span>
+
+        <h3>
+          What causes {{ disease.name }}?
+        </h3>
+
+        <p>
+          {{ disease.cause }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     FAVOURABLE CONDITIONS
+==================================================== -->
+
+<section
+  class="content-section conditions-section"
+  *ngIf="hasFavorableConditions()">
+
+  <div class="details-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        04
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          RISK FACTORS
+        </span>
+
+        <h2>
+          Favourable Conditions
+        </h2>
+
+        <p>
+          Conditions that can increase disease or pest pressure.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="condition-grid">
+
+      <div
+        class="condition-card"
+        *ngFor="
+          let item of disease.favorableConditions;
+          let i = index
+        ">
+
+        <div class="condition-icon">
+
+          <span *ngIf="i % 3 === 0">
+            🌧️
+          </span>
+
+          <span *ngIf="i % 3 === 1">
+            🌡️
+          </span>
+
+          <span *ngIf="i % 3 === 2">
+            🌱
+          </span>
+
+        </div>
+
+
+        <div class="condition-content">
+
+          <span class="condition-number">
+            CONDITION {{ i + 1 }}
+          </span>
+
+          <p>
+            {{ item }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     PREVENTION
+==================================================== -->
+
+<section
+  class="prevention-section"
+  *ngIf="hasPrevention()">
+
+  <div class="details-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        05
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          PROTECT YOUR CROP
+        </span>
+
+        <h2>
+          Prevention
+        </h2>
+
+        <p>
+          Practical practices that can help reduce the risk
+          before the problem becomes severe.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="prevention-list">
+
+      <div
+        class="prevention-item"
+        *ngFor="
+          let item of disease.prevention;
+          let i = index
+        ">
+
+        <div class="step-number">
+          {{ i + 1 }}
+        </div>
+
+        <div class="prevention-content">
+
+          <span>
+            PREVENTION PRACTICE
+          </span>
+
+          <p>
+            {{ item }}
+          </p>
+
+        </div>
+
+        <div class="check-icon">
+          ✓
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     BASIC SOLUTIONS
+==================================================== -->
+
+<section
+  class="solutions-section"
+  *ngIf="hasSolutions()">
+
+  <div class="details-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        06
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          RESPONSE
+        </span>
+
+        <h2>
+          Basic Solutions
+        </h2>
+
+        <p>
+          General crop-health measures that may help address
+          the problem.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="solution-grid">
+
+      <div
+        class="solution-card"
+        *ngFor="
+          let item of disease.solution;
+          let i = index
+        ">
+
+        <div class="solution-top">
+
+          <div class="solution-icon">
+            💡
+          </div>
+
+          <span>
+            SOLUTION {{ i + 1 }}
+          </span>
+
+        </div>
+
+        <p>
+          {{ item }}
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="advisory-note">
+
+      <div class="advisory-icon">
+        ⚠️
+      </div>
+
+      <div>
+
+        <strong>
+          Advisory Note
+        </strong>
+
+        <p>
+          Use only locally approved agricultural practices
+          and registered products where applicable. Follow
+          label directions and guidance from agricultural
+          extension professionals before applying any crop
+          protection product.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     MANAGEMENT
+==================================================== -->
+
+<section
+  class="management-section"
+  *ngIf="hasManagement()">
+
+  <div class="details-container management-container">
+
+    <div class="section-heading">
+
+      <span class="section-number">
+        07
+      </span>
+
+      <div>
+
+        <span class="section-label">
+          LONG-TERM CROP CARE
+        </span>
+
+        <h2>
+          Management
+        </h2>
+
+        <p>
+          Integrated practices for maintaining crop health
+          and reducing future risk.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="management-grid">
+
+      <div
+        class="management-card"
+        *ngFor="
+          let item of disease.management;
+          let i = index
+        ">
+
+        <div class="management-number">
+          {{ i + 1 }}
+        </div>
+
+        <div class="management-content">
+
+          <span>
+            MANAGEMENT PRACTICE
+          </span>
+
+          <p>
+            {{ item }}
+          </p>
+
+        </div>
+
+        <div class="management-arrow">
+          →
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     FIELD NOTE
+==================================================== -->
+
+<section class="field-note-section">
+
+  <div class="details-container">
+
+    <div class="field-note-card">
+
+      <div class="field-note-icon">
+        🌾
+      </div>
+
+      <div class="field-note-content">
+
+        <span>
+          AGRINEETI FIELD NOTE
+        </span>
+
+        <h2>
+          Monitor Early. Act Carefully.
+        </h2>
+
+        <p>
+          Regular field scouting can help identify symptoms
+          before the problem becomes severe. Compare symptoms
+          carefully and consider local crop conditions before
+          taking management action.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     BOTTOM NAVIGATION
+==================================================== -->
+
+<section class="bottom-navigation">
+
+  <div class="details-container">
+
+    <div class="navigation-wrapper">
+
+      <a
+        routerLink="/crops"
+        class="navigation-button back-button">
+
+        <span class="navigation-icon">
+          ←
+        </span>
+
+        <span>
+          Back to Crops
+        </span>
+
+      </a>
+
+
+      <div class="navigation-center">
+
+        <span>
+          CURRENT CROP
+        </span>
+
+        <strong>
+          {{ cropName }}
+        </strong>
+
+      </div>
+
+
+      <a
+        routerLink="/"
+        class="navigation-button home-button">
+
+        <span>
+          Home
+        </span>
+
+        <span class="navigation-icon">
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
+  </main>
+
+</div>
