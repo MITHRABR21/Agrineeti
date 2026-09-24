@@ -1,1 +1,1179 @@
-<p>disease-detection works!</p>
+<div class="detection-page">
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="detection-hero">
+
+    <div class="hero-glow hero-glow-one"></div>
+    <div class="hero-glow hero-glow-two"></div>
+
+    <div class="hero-container">
+
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AGRINEETI AI • PLANT HEALTH
+      </div>
+
+      <h1>
+        AI Plant Disease
+        <span>Detection</span>
+      </h1>
+
+      <p class="hero-description">
+        Upload a clear image of a crop leaf and let AgriNeeti AI
+        analyse it for supported plant health conditions.
+      </p>
+
+      <div class="hero-features">
+
+        <div class="hero-feature">
+          <span>01</span>
+
+          <div>
+            <strong>Upload</strong>
+            <small>Choose a leaf image</small>
+          </div>
+        </div>
+
+        <div class="hero-feature">
+          <span>02</span>
+
+          <div>
+            <strong>Analyse</strong>
+            <small>AI examines the image</small>
+          </div>
+        </div>
+
+        <div class="hero-feature">
+          <span>03</span>
+
+          <div>
+            <strong>Advisory</strong>
+            <small>View health guidance</small>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main class="detection-main">
+
+    <div class="detection-container">
+
+      <div class="section-heading">
+
+        <span class="section-label">
+          AI DISEASE ANALYSIS
+        </span>
+
+        <h2>
+          Analyse a Plant Image
+        </h2>
+
+        <p>
+          For better results, use a clear, well-lit image where
+          the affected leaf is clearly visible.
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           UPLOAD + PREVIEW
+      ================================================== -->
+
+      <div class="analysis-grid">
+
+        <section class="upload-panel">
+
+          <div class="panel-header">
+
+            <div class="panel-number">
+              01
+            </div>
+
+            <div>
+              <span>INPUT</span>
+              <h3>Upload Leaf Image</h3>
+            </div>
+
+          </div>
+
+
+          <!-- NO IMAGE -->
+
+          <label
+            class="upload-zone"
+            [class.drag-active]="dragActive"
+            *ngIf="!previewUrl"
+            (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)"
+            (drop)="onDrop($event)"
+          >
+
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              hidden
+            />
+
+            <div class="upload-icon">
+              <span>+</span>
+            </div>
+
+            <h3>
+              Upload Plant Image
+            </h3>
+
+            <p>
+              Drag and drop a leaf image here,
+              or click to browse your device.
+            </p>
+
+            <span class="browse-button">
+              Choose Image
+            </span>
+
+            <small>
+              JPG, JPEG, PNG or WEBP • Maximum 10 MB
+            </small>
+
+          </label>
+
+
+          <!-- IMAGE PREVIEW -->
+
+          <div
+            class="preview-area"
+            *ngIf="previewUrl"
+          >
+
+            <div class="preview-image-wrapper">
+
+              <img
+                [src]="previewUrl"
+                alt="Selected plant leaf"
+                class="preview-image"
+              />
+
+              <div class="image-ready-badge">
+                <span></span>
+                IMAGE READY
+              </div>
+
+            </div>
+
+
+            <div class="file-information">
+
+              <div class="file-icon">
+                🌿
+              </div>
+
+              <div class="file-details">
+
+                <strong>
+                  {{ fileName }}
+                </strong>
+
+                <span>
+                  {{ fileSize }}
+                </span>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="remove-image"
+                (click)="resetDetection()"
+                [disabled]="loading"
+                aria-label="Remove selected image"
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="analyse-button"
+              (click)="analyzeImage()"
+              [disabled]="loading"
+            >
+
+              <ng-container *ngIf="!loading">
+
+                <span class="analyse-icon">
+                  ✦
+                </span>
+
+                Analyse with AgriNeeti AI
+
+                <span class="button-arrow">
+                  →
+                </span>
+
+              </ng-container>
+
+
+              <ng-container *ngIf="loading">
+
+                <span class="button-spinner"></span>
+
+                Analysing Plant Image...
+
+              </ng-container>
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             INFORMATION PANEL
+        ================================================ -->
+
+        <aside class="guide-panel">
+
+          <div class="panel-header">
+
+            <div class="panel-number">
+              02
+            </div>
+
+            <div>
+              <span>IMAGE GUIDE</span>
+              <h3>For Better Detection</h3>
+            </div>
+
+          </div>
+
+
+          <div class="guide-list">
+
+            <div class="guide-item">
+
+              <div class="guide-icon">
+                ☀
+              </div>
+
+              <div>
+                <strong>Good Lighting</strong>
+
+                <p>
+                  Capture the leaf in natural or bright,
+                  even lighting.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="guide-item">
+
+              <div class="guide-icon">
+                ◎
+              </div>
+
+              <div>
+                <strong>Clear Focus</strong>
+
+                <p>
+                  Keep the affected area sharp and
+                  clearly visible.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="guide-item">
+
+              <div class="guide-icon">
+                ◫
+              </div>
+
+              <div>
+                <strong>One Main Leaf</strong>
+
+                <p>
+                  Avoid cluttered backgrounds and
+                  overlapping leaves when possible.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="guide-item">
+
+              <div class="guide-icon">
+                ⌁
+              </div>
+
+              <div>
+                <strong>Visible Symptoms</strong>
+
+                <p>
+                  Include spots, yellowing, lesions or
+                  other visible symptoms.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="supported-box">
+
+            <span class="supported-label">
+              CURRENT PROTOTYPE
+            </span>
+
+            <h4>
+              Supported Crops
+            </h4>
+
+            <div class="crop-tags">
+
+              <span>
+                🌴 Coconut
+              </span>
+
+              <span>
+                🌾 Sugarcane
+              </span>
+
+            </div>
+
+            <p>
+              The current AI prototype has been trained
+              using Coconut and Sugarcane image classes.
+            </p>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+
+      <!-- =================================================
+           ERROR
+      ================================================== -->
+
+      <section
+        class="error-card"
+        *ngIf="errorMessage"
+      >
+
+        <div class="error-icon">
+          !
+        </div>
+
+        <div>
+
+          <span>
+            ANALYSIS NOTICE
+          </span>
+
+          <h3>
+            Unable to Complete Analysis
+          </h3>
+
+          <p>
+            {{ errorMessage }}
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           LOADING ANALYSIS
+      ================================================== -->
+
+      <section
+        class="analysis-loading"
+        *ngIf="loading"
+      >
+
+        <div class="ai-loader">
+
+          <div class="loader-ring ring-one"></div>
+          <div class="loader-ring ring-two"></div>
+
+          <div class="loader-center">
+            AI
+          </div>
+
+        </div>
+
+        <div>
+
+          <span>
+            AGRINEETI AI
+          </span>
+
+          <h3>
+            Analysing Your Plant Image
+          </h3>
+
+          <p>
+            The trained model is examining the image
+            and comparing plant health patterns.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           RESULT
+      ================================================== -->
+
+      <section
+        class="result-section"
+        *ngIf="result && !loading"
+      >
+
+        <div class="result-heading">
+
+          <div>
+
+            <span class="section-label">
+              AI ANALYSIS COMPLETE
+            </span>
+
+            <h2>
+              Detection Result
+            </h2>
+
+            <p>
+              Review the model prediction and confidence
+              before using the result for crop-health guidance.
+            </p>
+
+          </div>
+
+
+          <div
+            class="confidence-badge"
+            [ngClass]="confidenceClass"
+          >
+
+            <span>
+              {{ confidenceIcon }}
+            </span>
+
+            {{ result.confidenceLevel }}
+            Confidence
+
+          </div>
+
+        </div>
+
+
+        <div class="result-grid">
+
+          <!-- IMAGE -->
+
+          <div class="result-image-card">
+
+            <span class="card-label">
+              ANALYSED IMAGE
+            </span>
+
+            <img
+              [src]="previewUrl"
+              alt="Analysed plant"
+            />
+
+          </div>
+
+
+          <!-- MAIN RESULT -->
+
+          <div class="prediction-card">
+
+            <span class="card-label">
+              PRIMARY PREDICTION
+            </span>
+
+
+            <div class="prediction-status">
+
+              <div
+                class="status-icon"
+                [ngClass]="confidenceClass"
+              >
+                {{ confidenceIcon }}
+              </div>
+
+              <div>
+
+                <span>
+                  {{ isHealthy ? 'Plant Health Status' : 'Detected Condition' }}
+                </span>
+
+                <h3>
+                  {{ result.condition }}
+                </h3>
+
+              </div>
+
+            </div>
+
+
+            <div class="prediction-details">
+
+              <div class="prediction-detail">
+
+                <span>
+                  CROP
+                </span>
+
+                <strong>
+                  {{ result.crop }}
+                </strong>
+
+              </div>
+
+
+              <div class="prediction-detail">
+
+                <span>
+                  CONDITION
+                </span>
+
+                <strong>
+                  {{ result.condition }}
+                </strong>
+
+              </div>
+
+
+              <div class="prediction-detail">
+
+                <span>
+                  CONFIDENCE
+                </span>
+
+                <strong>
+                  {{ result.confidence | number:'1.1-2' }}%
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="confidence-area">
+
+              <div class="confidence-header">
+
+                <span>
+                  Model Confidence
+                </span>
+
+                <strong>
+                  {{ result.confidence | number:'1.1-2' }}%
+                </strong>
+
+              </div>
+
+
+              <div class="confidence-track">
+
+                <div
+                  class="confidence-fill"
+                  [ngClass]="confidenceClass"
+                  [style.width.%]="result.confidence"
+                ></div>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="result-message"
+              [ngClass]="confidenceClass"
+            >
+
+              <span class="message-symbol">
+                {{ confidenceIcon }}
+              </span>
+
+              <p>
+                {{ result.message }}
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             TOP PREDICTIONS
+        ================================================ -->
+
+        <div
+          class="top-predictions"
+          *ngIf="
+            result.topPredictions &&
+            result.topPredictions.length > 0
+          "
+        >
+
+          <div class="top-heading">
+
+            <span>
+              MODEL ANALYSIS
+            </span>
+
+            <h3>
+              Top Predictions
+            </h3>
+
+          </div>
+
+
+          <div class="prediction-list">
+
+            <div
+              class="prediction-row"
+              *ngFor="
+                let prediction of result.topPredictions;
+                let i = index
+              "
+            >
+
+              <div class="prediction-rank">
+                {{ i + 1 }}
+              </div>
+
+
+              <div class="prediction-name">
+
+                <strong>
+                  {{ formatPredictionName(prediction.class) }}
+                </strong>
+
+                <div class="mini-track">
+
+                  <div
+                    class="mini-fill"
+                    [style.width.%]="prediction.confidence"
+                  ></div>
+
+                </div>
+
+              </div>
+
+
+              <span class="prediction-percentage">
+                {{ prediction.confidence | number:'1.1-2' }}%
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AI PLANT HEALTH ADVISORY
+        ================================================== -->
+
+        <section
+          class="advisory-section"
+          *ngIf="advisory"
+        >
+
+          <!-- ADVISORY HEADER -->
+
+          <div class="advisory-header">
+
+            <div>
+
+              <span class="section-label">
+                AGRINEETI PLANT HEALTH ADVISORY
+              </span>
+
+              <h2>
+                {{ advisoryHeading }}
+              </h2>
+
+              <p>
+                {{ advisoryConfidenceMessage }}
+              </p>
+
+            </div>
+
+
+            <div
+              class="advisory-status-badge"
+              [class.healthy]="isHealthy"
+              [class.disease]="isDisease"
+              [class.condition]="isCondition"
+            >
+
+              <span *ngIf="isHealthy">
+                ✓
+              </span>
+
+              <span *ngIf="!isHealthy">
+                !
+              </span>
+
+              <ng-container *ngIf="isHealthy">
+                HEALTHY
+              </ng-container>
+
+              <ng-container *ngIf="isDisease">
+                DISEASE
+              </ng-container>
+
+              <ng-container *ngIf="isCondition">
+                CONDITION
+              </ng-container>
+
+            </div>
+
+          </div>
+
+
+          <!-- HEALTHY RESULT -->
+
+          <div
+            class="healthy-advisory"
+            *ngIf="isHealthy"
+          >
+
+            <div class="healthy-icon">
+              ✓
+            </div>
+
+            <div>
+
+              <span>
+                PLANT HEALTH STATUS
+              </span>
+
+              <h3>
+                {{ advisory.title }}
+              </h3>
+
+              <p>
+                {{ advisory.explanation }}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- DISEASE / CONDITION OVERVIEW -->
+
+          <div
+            class="disease-overview-card"
+            *ngIf="!isHealthy"
+          >
+
+            <div class="overview-icon">
+              🌿
+            </div>
+
+            <div>
+
+              <span>
+                ABOUT THE CONDITION
+              </span>
+
+              <h3>
+                {{ advisory.title }}
+              </h3>
+
+              <p>
+                {{ advisory.explanation }}
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- ADVISORY INFORMATION -->
+
+          <div class="advisory-grid">
+
+
+            <!-- SYMPTOMS -->
+
+            <article
+              class="advisory-card symptoms-card"
+              *ngIf="
+                advisory.symptoms &&
+                advisory.symptoms.length > 0
+              "
+            >
+
+              <div class="advisory-card-header">
+
+                <div class="advisory-card-icon">
+                  ◉
+                </div>
+
+                <div>
+
+                  <span>
+                    IDENTIFICATION
+                  </span>
+
+                  <h3>
+                    Symptoms
+                  </h3>
+
+                </div>
+
+              </div>
+
+
+              <ul>
+
+                <li
+                  *ngFor="
+                    let item of advisory.symptoms
+                  "
+                >
+                  {{ item }}
+                </li>
+
+              </ul>
+
+            </article>
+
+
+            <!-- POSSIBLE CAUSES -->
+
+            <article
+              class="advisory-card causes-card"
+              *ngIf="
+                advisory.possibleCauses &&
+                advisory.possibleCauses.length > 0
+              "
+            >
+
+              <div class="advisory-card-header">
+
+                <div class="advisory-card-icon">
+                  ?
+                </div>
+
+                <div>
+
+                  <span>
+                    POSSIBLE FACTORS
+                  </span>
+
+                  <h3>
+                    Possible Causes
+                  </h3>
+
+                </div>
+
+              </div>
+
+
+              <ul>
+
+                <li
+                  *ngFor="
+                    let item of advisory.possibleCauses
+                  "
+                >
+                  {{ item }}
+                </li>
+
+              </ul>
+
+            </article>
+
+
+            <!-- PREVENTION -->
+
+            <article
+              class="advisory-card prevention-card"
+              *ngIf="
+                advisory.prevention &&
+                advisory.prevention.length > 0
+              "
+            >
+
+              <div class="advisory-card-header">
+
+                <div class="advisory-card-icon">
+                  ◈
+                </div>
+
+                <div>
+
+                  <span>
+                    PROTECTION
+                  </span>
+
+                  <h3>
+                    Prevention
+                  </h3>
+
+                </div>
+
+              </div>
+
+
+              <ul>
+
+                <li
+                  *ngFor="
+                    let item of advisory.prevention
+                  "
+                >
+                  {{ item }}
+                </li>
+
+              </ul>
+
+            </article>
+
+
+            <!-- SOLUTIONS -->
+
+            <article
+              class="advisory-card solutions-card"
+              *ngIf="
+                advisory.solutions &&
+                advisory.solutions.length > 0
+              "
+            >
+
+              <div class="advisory-card-header">
+
+                <div class="advisory-card-icon">
+                  ✓
+                </div>
+
+                <div>
+
+                  <span>
+                    RECOMMENDED ACTION
+                  </span>
+
+                  <h3>
+                    Solutions & Management
+                  </h3>
+
+                </div>
+
+              </div>
+
+
+              <ul>
+
+                <li
+                  *ngFor="
+                    let item of advisory.solutions
+                  "
+                >
+                  {{ item }}
+                </li>
+
+              </ul>
+
+            </article>
+
+
+            <!-- MONITORING -->
+
+            <article
+              class="advisory-card monitoring-card"
+              *ngIf="
+                advisory.monitoring &&
+                advisory.monitoring.length > 0
+              "
+            >
+
+              <div class="advisory-card-header">
+
+                <div class="advisory-card-icon">
+                  ◎
+                </div>
+
+                <div>
+
+                  <span>
+                    FOLLOW-UP
+                  </span>
+
+                  <h3>
+                    Monitoring
+                  </h3>
+
+                </div>
+
+              </div>
+
+
+              <ul>
+
+                <li
+                  *ngFor="
+                    let item of advisory.monitoring
+                  "
+                >
+                  {{ item }}
+                </li>
+
+              </ul>
+
+            </article>
+
+          </div>
+
+
+          <!-- LOW CONFIDENCE ADVISORY NOTICE -->
+
+          <div
+            class="advisory-confidence-warning"
+            *ngIf="
+              isLowConfidence &&
+              !isHealthy
+            "
+          >
+
+            <div class="warning-symbol">
+              !
+            </div>
+
+            <div>
+
+              <strong>
+                Possible condition — confirmation recommended
+              </strong>
+
+              <p>
+                The model confidence is low. Do not treat this
+                prediction as a confirmed disease diagnosis.
+                Upload another clear image and compare the visible
+                symptoms with the information above.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===============================================
+             LOW CONFIDENCE WARNING
+        ================================================ -->
+
+        <div
+          class="low-confidence-warning"
+          *ngIf="result.confidenceLevel === 'Low'"
+        >
+
+          <div class="warning-symbol">
+            !
+          </div>
+
+          <div>
+
+            <strong>
+              Low-confidence prediction
+            </strong>
+
+            <p>
+              The model is uncertain about this image.
+              Upload another clear image of the affected
+              leaf before relying on the predicted condition.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             PROTOTYPE NOTE
+        ================================================ -->
+
+        <div class="prototype-note">
+
+          <div class="note-icon">
+            i
+          </div>
+
+          <div>
+
+            <strong>
+              Prototype AI Advisory
+            </strong>
+
+            <p>
+              This prediction and advisory are generated by the current
+              AgriNeeti prototype system and should be treated as
+              decision-support information rather than a definitive
+              field diagnosis.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ===============================================
+             ACTION
+        ================================================ -->
+
+        <div class="result-actions">
+
+          <button
+            type="button"
+            class="analyse-another-button"
+            (click)="resetDetection()"
+          >
+            Analyse Another Image
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</div>
