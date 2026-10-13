@@ -119,33 +119,6 @@ export const CROP_DATA: CropInfo[] = [
 
   /*
   =======================================================
-  CHOLAM / SORGHUM
-  =======================================================
-  */
-
-  {
-    id: 'cholam',
-    name: 'Cholam / Sorghum',
-
-    overview:
-      'Cholam, commonly known as sorghum, is a drought-tolerant cereal crop suitable for many semi-arid regions of Tamil Nadu.',
-
-    commonDiseases: [
-      'Anthracnose',
-      'Leaf Blight',
-      'Downy Mildew',
-      'Grain Mould',
-      'Ergot',
-      'Rust',
-      'Shoot Fly',
-      'Stem Borer',
-      'Sorghum Midge'
-    ]
-  },
-
-
-  /*
-  =======================================================
   SUGARCANE
   =======================================================
   */

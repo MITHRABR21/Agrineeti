@@ -222,27 +222,7 @@ return [
     ]
   },
 
-  {
-    name: 'Cholam / Sorghum',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85',
-    description:
-      'Sorghum is a drought-tolerant cereal crop suitable for the semi-arid agricultural conditions of Coimbatore and Tamil Nadu.',
-    category: 'CEREAL CROP',
-    commonProblems: [
-      'Leaf spots and drying',
-      'Poor grain formation',
-      'Shoot damage',
-      'Grain mould during humid weather'
-    ],
-    diseases: [
-      'Anthracnose',
-      'Leaf Blight',
-      'Downy Mildew',
-      'Grain Mold',
-      'Ergot'
-    ]
-  },
+ 
 
   {
     name: 'Sugarcane',

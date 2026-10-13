@@ -424,8 +424,7 @@
    ========================================================= */
 
 .coimbatore-image {
-  background-image:
-    url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=85");
+  background-image: url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1000&q=85");
 }
 
 .erode-image {
@@ -434,8 +433,7 @@
 }
 
 .salem-image {
-  background-image:
-    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85");
+  background-image: url("https://plus.unsplash.com/premium_photo-1661907005604-cec7ffb6a042?auto=format&fit=crop&w=1000&q=85");
 }
 
 .thanjavur-image {
@@ -444,15 +442,12 @@
 }
 
 .trichy-image {
-  background-image:
-    url("https://images.unsplash.com/photo-1523742810674-d3a52cba7b0d?auto=format&fit=crop&w=1000&q=85");
+  background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85");
 }
 
 .tiruppur-image {
-  background-image:
-    url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=1000&q=85");
+  background-image: url("https://images.unsplash.com/photo-1627314129626-c5cf387f351b?auto=format&fit=crop&w=1000&q=85");
 }
-
 /* =========================================================
    IMAGE OVERLAY
    ========================================================= */
